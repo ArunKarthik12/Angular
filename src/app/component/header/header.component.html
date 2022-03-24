@@ -1,0 +1,39 @@
+<header class="bg">
+    <div class="navbar shadow-sm" style="background: #3C3B3F;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #605C3C, #3C3B3F);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #605C3C, #3C3B3F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    ; opacity: 0.6;">
+        <div class="navbar-brand align-item-center">
+            <img routerLink="/products"style="opacity:1;cursor: pointer;"src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/000000/external-shopping-cart-black-friday-flaticons-lineal-color-flat-icons.png" alt="">&nbsp;
+            <strong routerLink="/products"style="cursor: pointer;" id="title">E-STORE</strong>
+            
+
+
+        </div>
+        
+        <div class="d-flex">
+            <input style="width: 300px;" type="text"  [(ngModel)]="searchTerm" (keyup)="search($event)" placeholder=" Search ">
+            <button routerLink="/cart" class="btn nav-item mx-2" style="background-color: rgb(255, 217, 0);height: 43px;">
+                <i style="font-size: 30px;" class="fas fa-cart-plus"></i>
+                <div style="font-size: 10px;" class="badge bg-danger">{{totalItem}}</div>
+                <span id="cart_txt" routerLink="/cart"><b> My Cart </b></span>
+            </button>
+            
+            
+                <button routerLink="/login" class="signout px-4 mr-3"> Sign Out </button>  
+        
+        
+        
+        
+        </div>
+        
+        <!-- <span class="fas fa-search search-icon nav-item"></span> -->
+          
+        
+        
+
+    
+    </div>
+  
+    
+</header>

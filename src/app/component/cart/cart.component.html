@@ -1,0 +1,257 @@
+<app-header></app-header>  
+<ng-container *ngIf="products.length !=0">
+  
+  <div class="container">
+        <div class="card-table mt-3">
+            <div class="cart-product">
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th>Sr.No</th>
+                            <th>Product Name</th>
+                            <th>Product Image</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of products; let i = index">
+                            <td>{{i+1}}</td>
+                            <td>{{item.title}}</td>
+                            <td><img style="width: 120px;" src="{{item.image}}" alt=""></td>
+                            <td style="width: 25%;">{{item.description}}</td>
+                            <th style="width: 12%;">{{item.price}}</th>
+                            <td style="width: 12%;">{{item.quantity}}</td>
+                            <td style="width: 12%;">{{item.total}}</td>
+                            <td>
+                                <button (click)="removeItem(item)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4"></td>
+                            <td><button (click)="emptycart()" class="btn btn-outline-danger font">Empty Cart</button></td>
+                            <td><button routerLink="/products" class="btn btn-outline-primary font">Shop More</button></td>
+                            <td><button routerLink="/order" class="btn btn-outline-dark font">PROCEED</button></td>
+                            <td><strong>Your Total : ₹{{grandTotal}}</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+
+<ng-container *ngIf="products.length ==0">
+    <div class="container">
+        <div class="card">
+            <h5 class="card-title" style="font-family: 'Fredoka',sans-serif;">My Cart</h5>
+        </div>
+        <div class="center">
+            <img id="empty"src="data:image/jpeg;base64,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" alt="">
+            <h4>Your cart is empty !</h4>
+            <h6><b>To Add item <strong>click here ⬇️</strong> </b></h6>
+            <button routerLink="/products" class="btn btn-outline-primary font">Shop Now</button>
+        </div>
+    </div>
+</ng-container>
+<br>
+<div id="footer">
+    <!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted">
+    <!-- Section: Social media -->
+    <section
+      class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+    >
+      <!-- Left -->
+      <!-- <div class="me-5 d-none d-lg-block">
+        <span id="contact">Stay connected ! Stay Sporty - </span>
+      </div> -->
+      <!-- Left -->
+  
+      <!-- Right -->
+      <!-- <div>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-github"></i>
+        </a>
+      </div> -->
+      <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
+  
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-medal me-3"></i> E-STORE
+              <!-- <i class="fa-duotone fa-fire-flame-curved"></i> E-STORE  -->
+            </h6>
+            <p>
+                It is hard to fail, but it is worse never to have tried to succeed
+            </p>
+            <p>
+                India's #1 online sports store. <br> <br>Buy sports goods, sports equipment, fitness equipment, sports items for low prices online on our sport store.
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Products
+            </h6>
+            <p>
+              <a href="#!" class="text-reset txt-dec">Sports Accessories</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset txt-dec">Sports Items</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset txt-dec">Indoor Setup</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset txt-dec"> Indoor and Outdoor Nets </a>
+            </p>
+            <p>
+                <a href="#!" class="text-reset txt-dec">Miscellaneous</a>
+              </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Useful links
+            </h6>
+            <p>
+              <a href="#!" class="text-reset txt-dec">Pricing</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset txt-dec">Settings</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset txt-dec">Orders</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset txt-dec">Help</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Contact
+            </h6>
+            <p><i class="fas fa-home me-3"></i> RS Puram, Coimbatore, 641002.</p>
+            <p>
+              <i class="fas fa-envelope me-3"></i>
+              e-store11@gmail.com
+            </p>
+            <p><i class="fas fa-phone me-3"></i> +91 99999 88888</p>
+            <p><i class="fas fa-print me-3"></i> +91 98989 89898</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+</footer>
+<!-- Section: Links  -->
+<footer class="bg-light text-center text-white">
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <!-- Facebook -->
+        <a
+          class="btn btn-primary btn-floating m-1 round"
+          style="background-color: #3b5998;"
+          href="#!"
+          role="button"
+          ><i class="fab fa-facebook-f text-light"></i
+        ></a>
+  
+        <!-- Twitter -->
+        <a
+          class="btn btn-primary btn-floating m-1 round"
+          style="background-color: #55acee;"
+          href="#!"
+          role="button"
+          ><i class="fab fa-twitter text-light"></i
+        ></a>
+  
+        <!-- Google -->
+        <a
+          class="btn btn-primary btn-floating m-1 round"
+          style="background-color: #dd4b39;"
+          href="#!"
+          role="button"
+          ><i class="fab fa-google text-light"></i
+        ></a>
+  
+        <!-- Instagram -->
+        <a
+          class="btn btn-primary btn-floating m-1 round"
+          style="background-color: #ac2bac;"
+          href="#!"
+          role="button"
+          ><i class="fab fa-instagram text-light"></i
+        ></a>
+  
+        <!-- Linkedin -->
+        <a
+          class="btn btn-primary btn-floating m-1 round"
+          style="background-color: #0082ca;"
+          href="#!"
+          role="button"
+          ><i class="fab fa-linkedin-in text-light"></i
+        ></a>
+        <!-- Github -->
+        <a
+          class="btn btn-primary btn-floating m-1 round"
+          style="background-color: #333333;"
+          href="#!"
+          role="button"
+          ><i class="fab fa-github text-light"></i
+        ></a>
+      </section>
+      <!-- Section: Social media -->
+    </div>
+    <!-- Section: Links  -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2022 Copyright:
+        <a class="text-white" href="https://mdbootstrap.com/">www.e-store.com</a>
+      </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+</div>

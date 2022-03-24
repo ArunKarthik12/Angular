@@ -1,0 +1,76 @@
+.card-top {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background: white;
+    
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: .25rem;
+}
+#contact{
+    margin-left: 780px; 
+    color: black;
+    font-family: 'Fredoka',sans-serif;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+.item img {
+    width: 64px;
+
+}
+.txt-dec{
+    text-decoration: none;
+}
+#footer{
+    height: 400px;
+    // border: 2px solid grey;
+}
+.item {
+    margin: 0px 15px;
+    display: inline-block;
+    // text-align: center;
+    
+}
+
+.item a:hover {
+    color: blue;
+}
+
+.card {
+    padding: 20px;
+    margin: 1rem 0 0 0;
+    
+    transition: 0.3s ease-in-out;
+    
+}
+#footer h6{
+    color: rgb(2, 2, 56);
+}
+
+.card img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 15px;
+}
+
+.card:hover {
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.round{
+    border-radius: 100%;
+    border-color: white;
+    
+}
+.round:hover{
+    box-shadow: 0 0 5px 0;
+}
+#footer a,p:hover{
+    color: rgb(7, 6, 95);
+    // text-decoration: underline;
+}

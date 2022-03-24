@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@600&display=swap');
+.form-control {
+    border-radius: 3px;
+    width: 600px;
+    // margin-left: 20px;
+}
+#title{
+    font-size: 30px;
+    color: rgb(255, 196, 0);
+    font-family: 'Fredoka', sans-serif;
+
+}
+#cart_txt{
+    color: yellow;
+    font-family: 'Fredoka',sans-serif;
+    display: block;
+    // margin-left: 1180px;
+    // margin-top: -10px;
+}
+.signout{
+    // display: inline-block;
+    border-radius: 30px;
+    // width: 80px;
+    border-color: orange;
+    color: white;
+    // top:0;
+    // opacity: 1;
+    font-family: 'Fredoka',sans-serif;
+    // margin-top: -40px;
+    // margin-left: 1250px;
+    background-color: rgb(255, 196, 0);
+
+}
+
+.search-icon {
+    // position: absolute;
+    z-index: 10;
+    // right: 200px;
+    border: 2px solid black;
+    padding: 5px 8px 5px 8px;
+    top: 15px;
+    color: black;
+}
